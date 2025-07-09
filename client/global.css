@@ -1,0 +1,403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Advanced Futuristic Glassmorphism Theme
+   * Ultra-modern design with enhanced transparency and glow effects
+  */
+  :root {
+    --background: 180 20% 98%;
+    --foreground: 200 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 15% 15%;
+
+    --primary: 175 70% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 170 25% 90%;
+    --secondary-foreground: 200 15% 25%;
+
+    --muted: 180 15% 96%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 165 80% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 150 65% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 45 90% 55%;
+    --warning-foreground: 200 15% 15%;
+
+    --border: 180 20% 88%;
+    --input: 0 0% 100%;
+    --ring: 175 70% 45%;
+
+    --radius: 1.8rem;
+
+    /* Premium Glassmorphism Colors */
+    --glass-premium: 0 0% 100%;
+    --glass-teal: 175 70% 45%;
+    --glass-mint: 160 60% 85%;
+    --glass-silver: 200 10% 85%;
+    --glass-shadow: 180 15% 85%;
+
+    /* Futuristic accent colors */
+    --teal-primary: 175 70% 45%;
+    --teal-light: 170 60% 60%;
+    --mint-fresh: 160 60% 70%;
+    --mint-soft: 155 50% 80%;
+    --silver-bright: 200 10% 75%;
+    --silver-soft: 210 8% 85%;
+    --white-soft: 0 0% 98%;
+    --white-glass: 0 0% 100%;
+
+    /* Premium gradient stops */
+    --gradient-start: 180 25% 99%;
+    --gradient-mid: 175 20% 97%;
+    --gradient-end: 170 15% 95%;
+
+    /* Enhanced status colors */
+    --status-excellent: 150 65% 45%;
+    --status-good: 140 70% 50%;
+    --status-fair: 45 90% 55%;
+    --status-poor: 0 75% 60%;
+
+    /* Glow effects */
+    --glow-teal: 175 70% 45%;
+    --glow-mint: 160 60% 70%;
+    --glow-soft: 180 30% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+    background:
+      radial-gradient(
+        circle at 15% 15%,
+        hsla(175, 70%, 45%, 0.06) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 85% 85%,
+        hsla(160, 60%, 70%, 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 50% 30%,
+        hsla(200, 10%, 85%, 0.03) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 30% 70%,
+        hsla(155, 50%, 80%, 0.04) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        hsl(var(--gradient-start)) 0%,
+        hsl(var(--gradient-mid)) 50%,
+        hsl(var(--gradient-end)) 100%
+      );
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        hsla(var(--teal-primary), 0.04) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        hsla(var(--mint-fresh), 0.03) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        circle at 60% 40%,
+        hsla(var(--silver-soft), 0.02) 0%,
+        transparent 70%
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  /* Premium Futuristic Glassmorphism */
+  .glass-card {
+    @apply backdrop-blur-3xl border shadow-2xl relative overflow-hidden;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.85) 30%,
+      rgba(175, 70%, 45%, 0.04) 70%,
+      rgba(160, 60%, 70%, 0.03) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 25px 50px -12px rgba(175, 70%, 45%, 0.12),
+      0 16px 40px -8px rgba(0, 0, 0, 0.04),
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 0 rgba(175, 70%, 45%, 0.08);
+  }
+
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(175, 70%, 45%, 0.4) 20%,
+      rgba(160, 60%, 70%, 0.5) 50%,
+      rgba(200, 10%, 75%, 0.3) 80%,
+      transparent 100%
+    );
+    border-radius: 1.8rem 1.8rem 0 0;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.9) 30%,
+      rgba(175, 70%, 45%, 0.06) 70%,
+      rgba(160, 60%, 70%, 0.05) 100%
+    );
+    box-shadow:
+      0 35px 70px -12px rgba(175, 70%, 45%, 0.2),
+      0 25px 60px -8px rgba(0, 0, 0, 0.06),
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.98),
+      0 0 40px rgba(175, 70%, 45%, 0.15),
+      0 0 0 1px rgba(175, 70%, 45%, 0.25);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover::before {
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(175, 70%, 45%, 0.6) 20%,
+      rgba(160, 60%, 70%, 0.7) 50%,
+      rgba(200, 10%, 75%, 0.5) 80%,
+      transparent 100%
+    );
+  }
+
+  .glass-button {
+    @apply backdrop-blur-xl border relative overflow-hidden transition-all duration-500;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(140, 60%, 45%, 0.05) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 8px 32px 0 rgba(140, 60%, 45%, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .glass-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(140, 60%, 45%, 0.15) 50%,
+      transparent 100%
+    );
+    transition: left 0.6s ease;
+  }
+
+  .glass-button:hover::before {
+    left: 100%;
+  }
+
+  .glass-button:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(140, 60%, 45%, 0.1) 100%
+    );
+    border-color: rgba(140, 60%, 45%, 0.3);
+    box-shadow:
+      0 12px 48px 0 rgba(140, 60%, 45%, 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+      0 0 20px rgba(140, 60%, 45%, 0.2);
+    transform: translateY(-1px);
+  }
+
+  /* Enhanced Green Gradients */
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--fresh-green)) 0%,
+      hsl(var(--mint-green)) 50%,
+      hsl(var(--primary)) 100%
+    );
+    box-shadow:
+      0 8px 32px rgba(140, 60%, 45%, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .gradient-primary:hover {
+    box-shadow:
+      0 12px 48px rgba(140, 60%, 45%, 0.4),
+      0 0 24px rgba(140, 60%, 45%, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--lime-green)) 0%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--emerald-green)) 100%
+    );
+    box-shadow:
+      0 8px 32px rgba(160, 70%, 50%, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* Ultra-Modern Financial Score Indicators */
+  .financial-score-excellent {
+    @apply text-green-300 relative;
+    background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.2) 0%,
+      rgba(5, 150, 105, 0.1) 100%
+    );
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.2),
+      inset 0 1px 0 rgba(16, 185, 129, 0.1);
+  }
+
+  .financial-score-good {
+    @apply text-lime-300 relative;
+    background: linear-gradient(
+      135deg,
+      rgba(132, 204, 22, 0.2) 0%,
+      rgba(101, 163, 13, 0.1) 100%
+    );
+    border: 1px solid rgba(132, 204, 22, 0.3);
+    box-shadow:
+      0 0 20px rgba(132, 204, 22, 0.2),
+      inset 0 1px 0 rgba(132, 204, 22, 0.1);
+  }
+
+  .financial-score-fair {
+    @apply text-yellow-300 relative;
+    background: linear-gradient(
+      135deg,
+      rgba(234, 179, 8, 0.2) 0%,
+      rgba(202, 138, 4, 0.1) 100%
+    );
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    box-shadow:
+      0 0 20px rgba(234, 179, 8, 0.2),
+      inset 0 1px 0 rgba(234, 179, 8, 0.1);
+  }
+
+  .financial-score-poor {
+    @apply text-red-300 relative;
+    background: linear-gradient(
+      135deg,
+      rgba(239, 68, 68, 0.2) 0%,
+      rgba(220, 38, 38, 0.1) 100%
+    );
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    box-shadow:
+      0 0 20px rgba(239, 68, 68, 0.2),
+      inset 0 1px 0 rgba(239, 68, 68, 0.1);
+  }
+
+  /* Futuristic Glow Effects */
+  .neon-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neon-glow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(70, 130, 255, 0.1) 0%,
+      transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .neon-glow:hover::after {
+    opacity: 1;
+  }
+
+  /* Ultra-Modern Input Fields */
+  .futuristic-input {
+    @apply backdrop-blur-xl border-0 relative;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .futuristic-input:focus {
+    border-color: hsl(var(--neon-blue));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 4px 16px rgba(0, 0, 0, 0.15),
+      0 0 0 2px rgba(70, 130, 255, 0.2);
+  }
+}
